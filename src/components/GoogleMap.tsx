@@ -66,7 +66,6 @@ const GoogleMap = ({ zoom = 15, height = '400px' }: GoogleMapProps) => {
       // Coordonnées de Montréal (centre-ville)
       const montrealCoordinates = { lat: 45.5017, lng: -73.5673 };
       
-      // @ts-expect-error - L'API Google Maps est chargée dynamiquement
       const map = new window.google.maps.Map(mapRef.current, {
         zoom: zoom,
         center: montrealCoordinates,
@@ -94,17 +93,14 @@ const GoogleMap = ({ zoom = 15, height = '400px' }: GoogleMapProps) => {
       });
       
       // Ajouter un marqueur pour NEOMAC
-      // @ts-expect-error - L'API Google Maps est chargée dynamiquement
       const marker = new window.google.maps.Marker({
         position: montrealCoordinates,
         map: map,
         title: 'NEOMAC',
-        // @ts-expect-error - L'API Google Maps est chargée dynamiquement
         animation: window.google.maps.Animation.DROP
       });
       
       // Ajouter une info-bulle
-      // @ts-expect-error - L'API Google Maps est chargée dynamiquement
       const infoWindow = new window.google.maps.InfoWindow({
         content: `<div style="font-family: 'Ubuntu', sans-serif; padding: 10px;"><strong>NEOMAC</strong><br>Experts en toiture à Montréal</div>`
       });
@@ -125,8 +121,7 @@ const GoogleMap = ({ zoom = 15, height = '400px' }: GoogleMapProps) => {
     
     return () => {
       // Nettoyer le script lors du démontage du composant
-      // @ts-expect-error - Nous savons que c'est une fonction mais nous voulons la supprimer
-      window.initMap = null;
+      window.initMap = () => { /* Fonction vide */ };
       
       // Vérifier si le script existe encore dans le DOM avant de le supprimer
       if (document.head.contains(script)) {
