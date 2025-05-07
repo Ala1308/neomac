@@ -25,7 +25,7 @@ const LeafletMap = ({
 
     // Fix pour l'icône de marqueur dans Next.js
     const fixMarkerIcon = () => {
-      // @ts-ignore
+      // @ts-expect-error - Suppression de la méthode _getIconUrl pour fixer les icônes Leaflet
       delete L.Icon.Default.prototype._getIconUrl;
       
       L.Icon.Default.mergeOptions({

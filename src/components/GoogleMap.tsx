@@ -3,9 +3,36 @@
 import { useEffect, useRef } from 'react';
 
 interface GoogleMapProps {
+  // Nous gardons le paramètre address même s'il n'est pas utilisé pour maintenir l'interface
+  // Il pourrait être utilisé dans une future implémentation pour géocoder l'adresse
   address: string;
   zoom?: number;
   height?: string;
+}
+
+interface GoogleMapOptions {
+  zoom: number;
+  center: { lat: number; lng: number };
+  mapTypeControl: boolean;
+  streetViewControl: boolean;
+  fullscreenControl: boolean;
+  zoomControl: boolean;
+  styles: Array<{
+    featureType: string;
+    elementType: string;
+    stylers: Array<{ color: string }>;
+  }>;
+}
+
+interface MarkerOptions {
+  position: { lat: number; lng: number };
+  map: unknown;
+  title: string;
+  animation: number;
+}
+
+interface InfoWindowOptions {
+  content: string;
 }
 
 declare global {
@@ -13,9 +40,13 @@ declare global {
     initMap: () => void;
     google: {
       maps: {
-        Map: new (element: HTMLElement, options: any) => any;
-        Marker: new (options: any) => any;
-        InfoWindow: new (options: any) => any;
+        Map: new (element: HTMLElement, options: GoogleMapOptions) => unknown;
+        Marker: new (options: MarkerOptions) => {
+          addListener: (event: string, callback: () => void) => void;
+        };
+        InfoWindow: new (options: InfoWindowOptions) => {
+          open: (map: unknown, marker: unknown) => void;
+        };
         Animation: {
           DROP: number;
         };
@@ -24,7 +55,7 @@ declare global {
   }
 }
 
-const GoogleMap = ({ address, zoom = 15, height = '400px' }: GoogleMapProps) => {
+const GoogleMap = ({ zoom = 15, height = '400px' }: GoogleMapProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -35,7 +66,7 @@ const GoogleMap = ({ address, zoom = 15, height = '400px' }: GoogleMapProps) => 
       // Coordonnées de Montréal (centre-ville)
       const montrealCoordinates = { lat: 45.5017, lng: -73.5673 };
       
-      // @ts-ignore - Utilisation de l'API Google Maps
+      // @ts-expect-error - L'API Google Maps est chargée dynamiquement
       const map = new window.google.maps.Map(mapRef.current, {
         zoom: zoom,
         center: montrealCoordinates,
@@ -63,17 +94,17 @@ const GoogleMap = ({ address, zoom = 15, height = '400px' }: GoogleMapProps) => 
       });
       
       // Ajouter un marqueur pour NEOMAC
-      // @ts-ignore - Utilisation de l'API Google Maps
+      // @ts-expect-error - L'API Google Maps est chargée dynamiquement
       const marker = new window.google.maps.Marker({
         position: montrealCoordinates,
         map: map,
         title: 'NEOMAC',
-        // @ts-ignore - Utilisation de l'API Google Maps
+        // @ts-expect-error - L'API Google Maps est chargée dynamiquement
         animation: window.google.maps.Animation.DROP
       });
       
       // Ajouter une info-bulle
-      // @ts-ignore - Utilisation de l'API Google Maps
+      // @ts-expect-error - L'API Google Maps est chargée dynamiquement
       const infoWindow = new window.google.maps.InfoWindow({
         content: `<div style="font-family: 'Ubuntu', sans-serif; padding: 10px;"><strong>NEOMAC</strong><br>Experts en toiture à Montréal</div>`
       });
@@ -94,9 +125,13 @@ const GoogleMap = ({ address, zoom = 15, height = '400px' }: GoogleMapProps) => 
     
     return () => {
       // Nettoyer le script lors du démontage du composant
-      document.head.removeChild(script);
-      // @ts-ignore - Nous savons que c'est une fonction mais nous voulons la supprimer
+      // @ts-expect-error - Nous savons que c'est une fonction mais nous voulons la supprimer
       window.initMap = null;
+      
+      // Vérifier si le script existe encore dans le DOM avant de le supprimer
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
     };
   }, [zoom]);
   
@@ -105,7 +140,7 @@ const GoogleMap = ({ address, zoom = 15, height = '400px' }: GoogleMapProps) => 
       ref={mapRef} 
       style={{ 
         width: '100%', 
-        height: height, 
+        height, 
         borderRadius: '4px',
         overflow: 'hidden',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'

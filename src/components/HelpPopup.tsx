@@ -55,7 +55,7 @@ export default function HelpPopup() {
   return (
     <div className={styles.helpButton} onClick={handleClick}>
       <span className={styles.helpIcon}>?</span>
-      <span>BESOIN D'AIDE? PARLEZ À NOTRE RÉCEPTIONNISTE</span>
+      <span>BESOIN D&apos;AIDE? PARLEZ À NOTRE RÉCEPTIONNISTE</span>
     </div>
   );
 }
