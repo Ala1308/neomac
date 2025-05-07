@@ -13,40 +13,19 @@ const servicesData = [
     icon: "residential",
     title: "Toitures résidentielles",
     link: "/residentiel",
-    description: "Toitures en bardeaux d'asphalte, métal ou ardoise pour votre maison. Nos solutions résidentielles allient esthétique, durabilité et protection contre les intempéries.",
+    description: "Toitures en bardeaux d&apos;asphalte, métal ou ardoise pour votre maison. Nos solutions résidentielles allient esthétique, durabilité et protection contre les intempéries.",
     image: "/asphalt_residentiel.png"
   },
   {
     icon: "repair",
     title: "Réparations & entretien",
     link: "/contact",
-    description: "Services d'inspection, réparation de fuites, entretien préventif et interventions d'urgence pour prolonger la durée de vie de votre toiture et prévenir les dommages coûteux.",
+    description: "Services d&apos;inspection, réparation de fuites, entretien préventif et interventions d&apos;urgence pour prolonger la durée de vie de votre toiture et prévenir les dommages coûteux.",
     image: "/metallique_commerciale.png"
   }
 ];
 
-const whyUsData = [
-  {
-    icon: "Qualité",
-    title: "Qualité Supérieure",
-    text: "Nous utilisons uniquement des matériaux de première qualité et des techniques éprouvées."
-  },
-  {
-    icon: "Expertise",
-    title: "10 Ans d'Expertise",
-    text: "Notre expérience garantit un travail impeccable et conforme aux normes les plus strictes."
-  },
-  {
-    icon: "Service",
-    title: "Service Client Dédié",
-    text: "Une communication transparente et un accompagnement personnalisé à chaque étape."
-  },
-  {
-    icon: "Garantie",
-    title: "Garantie Complète",
-    text: "Profitez d&apos;une tranquillité d&apos;esprit avec nos garanties sur les matériaux et la main-d&apos;œuvre."
-  }
-];
+
 
 export default function HomePage() {
   return (
