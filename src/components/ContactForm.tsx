@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import styles from '../app/contact/page.module.css';
 
 const ContactForm = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -14,6 +15,11 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+
+  // S'assurer que le composant est monté côté client avant d'exécuter du code spécifique au navigateur
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -25,6 +31,8 @@ const ContactForm = () => {
   
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!isMounted) return; // S'assurer que nous sommes côté client
+    
     setIsSubmitting(true);
     setSubmitError('');
     
@@ -46,21 +54,27 @@ const ContactForm = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       // Simuler une réponse réussie
-      console.log('Formulaire soumis avec succès:', formData);
+      if (typeof window !== 'undefined') {
+        console.log('Formulaire soumis avec succès:', formData);
+      }
       setSubmitSuccess(true);
       
       // Réinitialiser le formulaire après 3 secondes
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          phone: '',
-          projectType: '',
-          message: ''
-        });
-        setSubmitSuccess(false);
-      }, 3000);
+      if (typeof window !== 'undefined') {
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            phone: '',
+            projectType: '',
+            message: ''
+          });
+          setSubmitSuccess(false);
+        }, 3000);
+      }
     } catch (error) {
-      console.error('Erreur lors de la soumission du formulaire:', error);
+      if (typeof window !== 'undefined') {
+        console.error('Erreur lors de la soumission du formulaire:', error);
+      }
       setSubmitError('Une erreur est survenue. Veuillez réessayer plus tard.');
     } finally {
       setIsSubmitting(false);
