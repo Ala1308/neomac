@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <h1 className={`${styles.heroTitle} animate-slideInLeft`}>
-            10 ANS D'EXPERTISE<br />EN TOITURES<br />COMMERCIALES ET<br />RÉSIDENTIELLES<br />AU QUÉBEC
+            10 ANS D&apos;EXPERTISE<br />EN TOITURES<br />COMMERCIALES ET<br />RÉSIDENTIELLES<br />AU QUÉBEC
           </h1>
           <p className={`${styles.heroSubtitle} animate-slideInLeft delay-200`}>
             Qualité, durabilité et service sur mesure,<br />quel que soit votre projet.
