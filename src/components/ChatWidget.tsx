@@ -35,11 +35,7 @@ export default function ChatWidget() {
         src="https://elevenlabs.io/convai-widget/index.js"
         strategy="afterInteractive"
       />
-      <div className={styles.chatWidgetContainer}>
-        <div className={styles.chatHeader}>
-          <h3>BESOIN D&apos;AIDE? PARLEZ À NOTRE RÉCEPTIONNISTE</h3>
-        </div>
-      </div>
+      {/* Le widget Elevenlabs Convai est injectu00e9 directement dans le DOM */}
     </>
   );
 }

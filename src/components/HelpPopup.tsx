@@ -4,15 +4,12 @@ import { useState, useEffect } from 'react';
 import styles from './HelpPopup.module.css';
 
 export default function HelpPopup() {
-  const [isVisible, setIsVisible] = useState(true);
+  // Désactiver le popup d'aide car nous utilisons maintenant le widget Elevenlabs directement
+  const [isVisible, setIsVisible] = useState(false);
   
-  // Delay the button appearance by 2 seconds
+  // Ne plus afficher le bouton d'aide
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 2000);
-    
-    return () => clearTimeout(timer);
+    setIsVisible(false);
   }, []);
   
   const handleClick = () => {
