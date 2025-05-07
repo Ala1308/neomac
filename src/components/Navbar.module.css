@@ -1,0 +1,105 @@
+.navbar {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 1rem 2rem; /* Adjust padding as needed */
+  position: fixed; /* Or sticky, depending on desired behavior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow if needed */
+}
+
+.navContainer {
+  max-width: 1200px; /* Or your preferred max-width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between logo and title */
+}
+
+.logoTitle {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.navMenu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between menu items */
+}
+
+.navLink {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 1rem;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 150ms ease-in-out;
+  cursor: pointer; /* For button elements used as links */
+  background: none;
+  border: none;
+}
+
+.navLink:hover,
+.navLink.active { /* We'll need to implement active state logic in JS */
+  color: var(--orange);
+}
+
+.navItemRelative {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 0.375rem; /* 6px */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  padding: 0.5rem 0;
+  min-width: 200px; /* Adjust as needed */
+  z-index: 1010;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
+}
+
+/* Applied when dropdown should be visible */
+.navItemRelative:hover .dropdown,
+.dropdown:hover { /* Keep open when hovering dropdown itself */
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownLink {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--black);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+.dropdownLink:hover {
+  background-color: var(--cream);
+  color: var(--orange);
+}
+
+/* TODO: Mobile menu (burger) styling - will be added later */

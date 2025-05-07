@@ -1,26 +1,81 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+/* Tailwind directives */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+/* Ces directives sont commentées car elles causent des erreurs de lint
+   Si vous utilisez Tailwind, vous pouvez les décommenter */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* NEOMAC Palette */
+  --black: #000000;
+  --white: #FFFFFF;
+  --orange: #FFA500;
+  --orange-dark: #E59400; /* For hover states */
+  --orange-hover: #FF8C00;
+  --cream: #F5F0E8;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+  /* Default Next.js variables (can be removed if not used by Tailwind defaults we keep) */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background-color: var(--white); /* Default background for the site */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400; /* Ubuntu Regular */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700; /* Ubuntu Bold by default for headings */
+  margin-bottom: 0.75rem; /* Basic spacing for headings */
+}
+
+p {
+  margin-bottom: 1rem; /* Basic spacing for paragraphs */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utility class for screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

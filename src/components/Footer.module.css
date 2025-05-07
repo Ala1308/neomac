@@ -1,0 +1,95 @@
+.footer {
+  background-color: var(--black);
+  color: var(--cream);
+  padding: 3rem 2rem; /* Vertical 3rem, Horizontal 2rem */
+}
+
+.footerContainer {
+  max-width: 1200px; /* Or your preferred max-width */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 2rem; /* Space between columns */
+  margin-bottom: 2rem; /* Space before footer bottom */
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Space between items in a column */
+}
+
+.footerHeading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 1.125rem; /* ~18px */
+  color: var(--white); /* Headings slightly brighter or same as text */
+  margin-bottom: 0.5rem;
+}
+
+.footerColumn p,
+.footerLinksList li {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 0.95rem; /* ~15px */
+  line-height: 1.6;
+}
+
+.footerLink {
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 150ms ease-in-out;
+}
+
+.footerLink:hover {
+  color: var(--orange);
+}
+
+.footerLinksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem; /* Space between icons */
+  align-items: center;
+}
+
+.socialIconLink svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--cream);
+  transition: fill 150ms ease-in-out;
+}
+
+.socialIconLink:hover svg {
+  fill: var(--orange);
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(245, 240, 232, 0.2); /* Cream color with opacity for divider */
+  font-size: 0.875rem; /* ~14px */
+}
+
+/* Responsive adjustments for columns if needed */
+@media (max-width: 768px) {
+  .footerContainer {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    text-align: center; /* Center text in columns */
+  }
+
+  .footerColumn {
+    align-items: center; /* Center items within stacked columns */
+  }
+
+  .socialIcons {
+    justify-content: center; /* Center social icons */
+  }
+}

@@ -1,0 +1,37 @@
+.chatWidgetContainer {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  font-family: 'Ubuntu', sans-serif;
+  pointer-events: none; /* Pour ne pas interférer avec le widget Elevenlabs */
+}
+
+.chatHeader {
+  background-color: var(--orange);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  margin-bottom: 10px;
+  pointer-events: none; /* Pour ne pas interférer avec le widget Elevenlabs */
+}
+
+.chatHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chatWidgetContainer {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chatHeader h3 {
+    font-size: 14px;
+  }
+}
