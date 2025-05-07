@@ -4,7 +4,6 @@ import "@/styles/animations.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "NEOMAC - Toitures Commerciales et Résidentielles",

@@ -1,26 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
 
-// Icon components for services
-const CommercialIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 12H16V20H8V12ZM20 12H28V20H20V12ZM32 12H40V20H32V12ZM8 24H16V32H8V24ZM20 24H28V32H20V24ZM32 24H40V32H32V24ZM8 36H16V44H8V36ZM20 36H28V44H20V36ZM32 36H40V44H32V36Z" fill="#000000"/>
-  </svg>
-);
-
-const ResidentialIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 4L4 24H10V44H20V32H28V44H38V24H44L24 4Z" fill="#000000"/>
-  </svg>
-);
-
-const RepairIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M36 4L26 14L34 22L44 12L36 4ZM22 18L4 36V44H12L30 26L22 18Z" fill="#000000"/>
-  </svg>
-);
-
-
 const servicesData = [
   {
     icon: "commercial",
@@ -64,7 +44,7 @@ const whyUsData = [
   {
     icon: "Garantie",
     title: "Garantie Complète",
-    text: "Profitez d'une tranquillité d'esprit avec nos garanties sur les matériaux et la main-d'œuvre."
+    text: "Profitez d&apos;une tranquillité d&apos;esprit avec nos garanties sur les matériaux et la main-d&apos;œuvre."
   }
 ];
 

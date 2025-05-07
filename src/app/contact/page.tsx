@@ -50,7 +50,7 @@ export default function ContactPage() {
           <div className={styles.coordGrid}>
             <div className={styles.coordColumn}>
               <h3 className={styles.coordTitle}>Coordonnées</h3>
-              <p className={styles.coordText}>123 Rue de l'Exemple</p>
+              <p className={styles.coordText}>123 Rue de l&apos;Exemple</p>
               <p className={styles.coordText}>Montreal, QC H1A 2B3</p>
               <p className={styles.coordText}>555-123-4567</p>
               <p className={styles.coordText}>info@neomac.ca</p>

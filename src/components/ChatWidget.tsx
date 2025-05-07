@@ -37,7 +37,7 @@ export default function ChatWidget() {
       />
       <div className={styles.chatWidgetContainer}>
         <div className={styles.chatHeader}>
-          <h3>BESOIN D'AIDE? PARLEZ À NOTRE RÉCEPTIONNISTE</h3>
+          <h3>BESOIN D&apos;AIDE? PARLEZ À NOTRE RÉCEPTIONNISTE</h3>
         </div>
       </div>
     </>

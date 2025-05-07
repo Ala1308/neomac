@@ -28,50 +28,8 @@ const commercialServices = [
   }
 ];
 
-// SVG Icons for services
-const ServiceIcon = ({ type }: { type: string }) => {
-  switch (type) {
-    case 'tpo':
-      return (
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="serviceIcon">
-          <path d="M12 16C12 14.9 12.9 14 14 14H50C51.1 14 52 14.9 52 16V48C52 49.1 51.1 50 50 50H14C12.9 50 12 49.1 12 48V16ZM46 22H18V42H46V22Z" fill="#FFFFFF" stroke="#000000" strokeWidth="1"/>
-          <path d="M18 22L46 42" stroke="#FFA500" strokeWidth="2"/>
-          <path d="M18 42L46 22" stroke="#FFA500" strokeWidth="2"/>
-          <path d="M24 28H40V36H24V28Z" fill="#FFA500"/>
-        </svg>
-      );
-    case 'epdm':
-      return (
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="serviceIcon">
-          <path d="M12 16C12 14.9 12.9 14 14 14H50C51.1 14 52 14.9 52 16V48C52 49.1 51.1 50 50 50H14C12.9 50 12 49.1 12 48V16ZM46 22H18V42H46V22Z" fill="#333333"/>
-          <path d="M18 22L46 42" stroke="#FFA500" strokeWidth="2"/>
-          <path d="M18 42L46 22" stroke="#FFA500" strokeWidth="2"/>
-          <circle cx="32" cy="32" r="6" fill="#FFA500"/>
-        </svg>
-      );
-    case 'elastomere':
-      return (
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="serviceIcon">
-          <path d="M12 16C12 14.9 12.9 14 14 14H50C51.1 14 52 14.9 52 16V48C52 49.1 51.1 50 50 50H14C12.9 50 12 49.1 12 48V16Z" fill="#555555"/>
-          <path d="M12 32C12 30.9 12.9 30 14 30H50C51.1 30 52 30.9 52 32V48C52 49.1 51.1 50 50 50H14C12.9 50 12 49.1 12 48V32Z" fill="#333333"/>
-          <path d="M20 22L44 22" stroke="#FFA500" strokeWidth="2"/>
-          <path d="M20 38L44 38" stroke="#FFA500" strokeWidth="2"/>
-        </svg>
-      );
-    case 'metal':
-      return (
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="serviceIcon">
-          <path d="M8 16H56V24H8V16ZM8 28H56V36H8V28ZM8 40H56V48H8V40Z" fill="#000000"/>
-          <path d="M12 20L52 20" stroke="#FFA500" strokeWidth="2"/>
-          <path d="M12 32L52 32" stroke="#FFA500" strokeWidth="2"/>
-          <path d="M12 44L52 44" stroke="#FFA500" strokeWidth="2"/>
-        </svg>
-      );
 
-    default:
-      return null;
-  }
-};
+
 
 export default function CommercialPage() {
   return (
