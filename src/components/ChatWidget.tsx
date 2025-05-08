@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
-import styles from './ChatWidget.module.css';
 
 export default function ChatWidget() {
   useEffect(() => {
