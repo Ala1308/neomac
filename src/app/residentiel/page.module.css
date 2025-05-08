@@ -147,12 +147,22 @@
 .cardDescription {
   color: var(--white);
   font-family: 'Ubuntu', sans-serif;
-  font-size: 0.95rem; /* Légèrement réduit pour mieux s'adapter à l'espace */
-  line-height: 1.4; /* Légèrement réduit pour permettre plus de texte */
+  font-size: 1rem; /* Taille de police plus grande pour une meilleure lisibilité */
+  line-height: 1.5; /* Interligne plus grand pour une meilleure lisibilité */
   text-align: center;
   margin: 0 0 1.5rem 0;
-  max-height: 70%; /* Limiter la hauteur pour laisser de l'espace pour le bouton */
+  max-height: 75%; /* Plus d'espace pour le texte */
   overflow-y: auto; /* Permettre le défilement si nécessaire */
+  padding: 0 0.5rem; /* Ajouter un peu d'espace sur les côtés */
+}
+
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .cardDescription {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-height: 80%; /* Encore plus d'espace pour le texte sur mobile */
+  }
 }
 
 .cardButton {

@@ -12,6 +12,13 @@
   background-position: center; /* Position to center the image */
 }
 
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .heroSection {
+    height: 500px; /* Hauteur réduite sur mobile */
+  }
+}
+
 /* .heroImage class is no longer used for this approach */
 /* Ruleset removed */
 
@@ -27,6 +34,15 @@
   z-index: 1; /* Sits above the section's background image, but below heroContent */
 }
 
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .heroOverlay {
+    width: 100%; /* Overlay pleine largeur sur mobile */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%); /* Diagonale différente sur mobile */
+    opacity: 0.85; /* Légèrement transparent pour voir l'image de fond */
+  }
+}
+
 .heroContent {
   position: relative; 
   z-index: 2; /* Ensures content is above the overlay */
@@ -34,6 +50,16 @@
   margin-left: 40%; /* Adjusted to match design */
   max-width: 600px; /* Max width for the text block */
   text-align: left; /* Align text to the left as per mockup */
+}
+
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .heroContent {
+    padding: 1.5rem;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .heroTitle {
@@ -93,36 +119,61 @@
 
 
 /* Placeholder for other sections */
-.servicesSection, .whyUsSection, .gallerySection {
-  padding: 4rem 2rem;
+.servicesSection {
+  background-color: var(--cream);
+  padding: 4rem 1rem;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .servicesSection {
+    padding: 3rem 1rem;
+  }
 }
 
 .sectionTitle {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
+  font-size: 2rem;
   color: var(--black);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
-/* Specific background for services section */
-.servicesSection {
-  background-color: var(--cream);
-  padding: 3rem 1rem;
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .sectionTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
-/* Nos Services Section Styles */
-.sectionContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem; /* Horizontal padding within sections */
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--orange);
 }
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -147,6 +198,23 @@
   width: 100%;
   height: 250px;
   aspect-ratio: 1/1.2;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Responsive pour mobile */
+@media (max-width: 767px) {
+  .serviceCard {
+    margin-bottom: 1.5rem;
+    height: 280px; /* Légèrement plus grand sur mobile pour assurer la lisibilité */
+  }
+  
+  .serviceCard:hover {
+    transform: translateY(-3px); /* Moins de mouvement sur mobile */
+  }
 }
 
 .cardImageContainer {

@@ -16,6 +16,55 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+/* Styles pour le bouton hamburger */
+.hamburgerButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: var(--white);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Styles pour le menu mobile */
+@media (max-width: 767px) {
+  .hamburgerButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--black);
+    flex-direction: column;
+    padding: 5rem 1rem 1rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+  }
+  
+  .mobileMenuOpen {
+    right: 0;
+  }
 }
 
 .logoContainer {
@@ -36,6 +85,24 @@
   display: flex;
   align-items: center;
   gap: 1.5rem; /* Space between menu items */
+}
+
+@media (max-width: 767px) {
+  .navMenu {
+    gap: 0;
+  }
+  
+  .navMenu li {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .navLink {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0;
+    text-align: left;
+  }
 }
 
 .navLink {
@@ -77,6 +144,18 @@
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
 }
 
+/* Menu déroulant pour mobile */
+.mobileDropdown {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Applied when dropdown should be visible */
 .navItemRelative:hover .dropdown,
 .dropdown:hover { /* Keep open when hovering dropdown itself */
@@ -95,6 +174,21 @@
   text-decoration: none;
   white-space: nowrap;
   transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+@media (max-width: 767px) {
+  .mobileDropdown .dropdownLink {
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    border-left: 2px solid rgba(255, 165, 0, 0.5);
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .mobileDropdown .dropdownLink:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--orange);
+  }
 }
 
 .dropdownLink:hover {
