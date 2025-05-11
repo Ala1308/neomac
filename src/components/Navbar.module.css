@@ -27,14 +27,16 @@
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
+  /* Augmenter la taille et la visibilité */
+  margin-right: 0.5rem;
 }
 
 .hamburgerLine {
   display: block;
-  width: 25px;
+  width: 30px;
   height: 3px;
-  margin: 5px 0;
-  background-color: var(--white);
+  margin: 6px 0;
+  background-color: var(--orange); /* Couleur plus visible */
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -45,25 +47,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    right: 0;
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%); /* Centre verticalement */
+    margin-right: 1rem;
   }
   
+  .navbar {
+    padding: 0.75rem 1rem; /* Reduce padding on mobile */
+  }
+
   .mobileMenu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    max-width: 300px;
+    width: 85%;
+    max-width: 320px;
     height: 100vh;
     background-color: var(--black);
     flex-direction: column;
     padding: 5rem 1rem 1rem;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3); /* Shadow more visible */
     overflow-y: auto;
+    z-index: 1000;
   }
   
   .mobileMenuOpen {
     right: 0;
+  }
+  
+  /* Ajout d'un overlay sombre quand le menu est ouvert */
+  .mobileMenuOpen::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
   }
 }
 
@@ -71,6 +95,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem; /* Space between logo and title */
+  z-index: 1002; /* S'assurer que le logo reste au-dessus du menu mobile */
 }
 
 .logoTitle {
@@ -78,6 +103,16 @@
   font-weight: 700; /* Bold */
   font-size: 1.25rem;
   color: var(--white);
+}
+
+@media (max-width: 767px) {
+  .logoContainer {
+    gap: 0.5rem; /* Réduire l'espace entre le logo et le titre */
+  }
+  
+  .logoTitle {
+    font-size: 1.1rem; /* Réduire légèrement la taille du texte */
+  }
 }
 
 .navMenu {
@@ -90,18 +125,27 @@
 @media (max-width: 767px) {
   .navMenu {
     gap: 0;
+    margin: 0;
+    padding: 0;
   }
   
   .navMenu li {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem; /* Augmenter l'espacement vertical */
+    padding: 0;
   }
   
   .navLink {
     display: block;
     width: 100%;
-    padding: 0.75rem 0;
+    padding: 1rem 0.5rem; /* Plus de padding pour une meilleure zone de clic */
     text-align: left;
+    font-size: 1.1rem; /* Texte plus grand sur mobile */
+    border-radius: 4px;
+  }
+
+  .navLink:active {
+    background-color: rgba(255, 255, 255, 0.1); /* Feedback visuel au toucher */
   }
 }
 
@@ -177,17 +221,29 @@
 }
 
 @media (max-width: 767px) {
-  .mobileDropdown .dropdownLink {
-    padding: 0.75rem 1rem;
-    color: var(--white);
-    border-left: 2px solid rgba(255, 165, 0, 0.5);
-    margin-left: 1rem;
-    font-size: 0.9rem;
+  .mobileDropdown {
+    background-color: rgba(255, 165, 0, 0.1); /* Fond légèrement coloré */
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    overflow: hidden; /* Pour garder les coins arrondis */
   }
   
-  .mobileDropdown .dropdownLink:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  .mobileDropdown .dropdownLink {
+    padding: 1rem 1.5rem; /* Plus grand pour meilleure zone de clic */
+    color: var(--white);
+    border-left: 3px solid var(--orange); /* Bordure orange plus visible */
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 2px; /* Petit espace entre les éléments */
+    transition: all 0.2s ease;
+  }
+  
+  .mobileDropdown .dropdownLink:hover,
+  .mobileDropdown .dropdownLink:active {
+    background-color: rgba(255, 255, 255, 0.15); /* Plus visible au toucher */
     color: var(--orange);
+    padding-left: 1.7rem; /* Effet de décalage au toucher */
   }
 }
 
@@ -227,12 +283,31 @@
 
 @media (max-width: 767px) {
   .navCTAContainer {
-    margin: 1rem 0 0 0;
+    margin: 1.5rem 0 0.5rem 0;
     text-align: center;
+    width: 100%;
   }
   
   .navCTA {
     width: 100%;
-    padding: 0.8rem 1rem;
+    padding: 1rem 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 }
