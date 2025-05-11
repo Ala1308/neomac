@@ -35,12 +35,15 @@ const Navbar = () => {
     </svg>
   );
 
-  // Icône de menu hamburger pour mobile
+  // Icône de menu hamburger pour mobile avec texte "Menu"
   const HamburgerIcon = () => (
     <button className={styles.hamburgerButton} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-      <span className={styles.hamburgerLine}></span>
-      <span className={styles.hamburgerLine}></span>
-      <span className={styles.hamburgerLine}></span>
+      <span className={styles.hamburgerText}>MENU</span>
+      <div className={styles.hamburgerLines}>
+        <span className={styles.hamburgerLine}></span>
+        <span className={styles.hamburgerLine}></span>
+        <span className={styles.hamburgerLine}></span>
+      </div>
     </button>
   );
 

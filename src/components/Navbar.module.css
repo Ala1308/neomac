@@ -27,13 +27,9 @@
     width: 100%; /* Garantir la pleine largeur */
   }
   
-  .logoContainer {
-    margin-right: auto; /* Pousse le logo à gauche */
-    flex: 0 1 auto; /* Ne pas étirer le logo */
-  }
-  
   .navbar {
     padding: 0.75rem 0; /* Réduire le padding vertical, supprimer horizontal */
+    height: 60px; /* Garantir une hauteur fixe */
   }
 }
 
@@ -43,10 +39,25 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   z-index: 1001;
   /* Augmenter la taille et la visibilité */
   margin-right: 0.5rem;
+}
+
+.hamburgerText {
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.hamburgerLines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hamburgerLine {
@@ -62,33 +73,26 @@
 /* Styles pour le menu mobile */
 @media (max-width: 767px) {
   .hamburgerButton {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    right: 0;
-    top: 50%; /* Centre verticalement */
-    transform: translateY(-50%); /* Centre verticalement */
-    margin-right: 1rem;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    margin: 0;
+    z-index: 1002;
+    background-color: var(--black);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: 2px solid var(--orange);
   }
   
   .navbar {
     padding: 0.75rem 1rem; /* Reduce padding on mobile */
   }
 
-  /* Correction du menu mobile */
-  .hamburgerButton {
-    display: flex !important; /* Forcer l'affichage */
-    position: absolute;
-    left: 10px; /* Positionner à gauche */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1001;
-    background-color: rgba(255, 165, 0, 0.2); /* Fond orange semi-transparent */
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--orange);
-  }
+  /* Le menu est fixe sur mobile */
+
   
   /* Ajout d'un overlay sombre quand le menu est ouvert */
   .mobileMenuOpen::before {
@@ -120,6 +124,10 @@
 @media (max-width: 767px) {
   .logoContainer {
     gap: 0.5rem; /* Réduire l'espace entre le logo et le titre */
+    position: fixed;
+    top: 12px;
+    left: 15px;
+    z-index: 1002;
   }
   
   .logoTitle {
@@ -142,12 +150,11 @@
     padding: 0;
   }
   
-  /* Afficher le menu quand la classe mobileMenuOpen est présente */
-  .mobileMenuOpen {
-    display: flex !important;
+  /* Style pour le menu mobile (appliqué uniquement sur mobile) */
+  .mobileMenu {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -100%; /* Caché par défaut, en dehors de l'écran */
     width: 85%;
     max-width: 300px;
     height: 100vh;
@@ -157,6 +164,12 @@
     z-index: 999;
     overflow-y: auto;
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+  }
+  
+  /* Afficher le menu quand la classe mobileMenuOpen est présente */
+  .mobileMenuOpen {
+    right: 0 !important; /* Faire apparaître le menu */
   }
   
   /* Ajout d'un overlay sombre pour le fond quand le menu est ouvert */
