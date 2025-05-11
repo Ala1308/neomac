@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
+import Image from 'next/image';
 import Script from 'next/script';
 
 const commercialServices = [
@@ -83,13 +84,13 @@ export default function CommercialPage() {
             {commercialServices.map((service, index) => (
               <div key={index} className={`${styles.serviceCard} animate-zoomIn`} style={{ animationDelay: `${index * 100}ms` }}>
                 <div className={styles.cardImageContainer}>
-                  <img 
+                  <Image 
                     src={service.image} 
                     alt={service.title} 
                     className={styles.cardImage} 
                     loading="lazy" 
-                    width="400" 
-                    height="300" 
+                    width={400} 
+                    height={300} 
                   />
                 </div>
                 <h3 className={styles.serviceCardTitle}>{service.title}</h3>
@@ -107,8 +108,8 @@ export default function CommercialPage() {
       <section className={styles.midCTASection}>
         <div className={styles.midCTAOverlay}></div>
         <div className={styles.midCTAContent}>
-          <h2 className={styles.midCTATitle}>Besoin d'une solution sur mesure?</h2>
-          <p className={styles.midCTAText}>Notre équipe d'experts est prête à vous conseiller pour votre projet commercial.</p>
+          <h2 className={styles.midCTATitle}>Besoin d&apos;une solution sur mesure?</h2>
+          <p className={styles.midCTAText}>Notre équipe d&apos;experts est prête à vous conseiller pour votre projet commercial.</p>
           <div className={styles.midCTAButtons}>
             <ButtonLink href="/contact" className={`${styles.midCTAPrimary} animate-pulse`}>
               OBTENIR UN DEVIS GRATUIT

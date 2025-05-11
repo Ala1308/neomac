@@ -1,7 +1,6 @@
 import styles from "./page.module.css";
 import MapContainer from '@/components/MapContainer';
 import ContactForm from '@/components/ContactForm';
-import ButtonLink from '@/components/ButtonLink';
 
 export default function ContactPage() {
   return (

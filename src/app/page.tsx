@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
+import Image from 'next/image';
 import Script from 'next/script';
 
 const servicesData = [
@@ -98,13 +99,13 @@ export default function HomePage() {
             {servicesData.map((service, index) => (
               <div key={index} className={`${styles.serviceCard} animate-zoomIn`} style={{ animationDelay: `${index * 100}ms` }}>
                 <div className={styles.cardImageContainer}>
-                  <img 
+                  <Image 
                     src={service.image} 
                     alt={service.title} 
                     className={styles.cardImage} 
                     loading="lazy" 
-                    width="400" 
-                    height="300" 
+                    width={400} 
+                    height={300} 
                   />
                 </div>
                 <h3 className={styles.serviceCardTitle}>{service.title}</h3>

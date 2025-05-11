@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
+import Image from 'next/image';
 import Script from 'next/script';
 
 const residentialServices = [
@@ -89,13 +90,13 @@ export default function ResidentielPage() {
             {residentialServices.map((service, index) => (
               <div key={index} className={`${styles.serviceCard} animate-slideInRight`} style={{ animationDelay: `${index * 150}ms` }}>
                 <div className={styles.cardImageContainer}>
-                  <img 
+                  <Image 
                     src={service.image} 
                     alt={service.title} 
                     className={styles.cardImage} 
                     loading="lazy" 
-                    width="400" 
-                    height="300" 
+                    width={400} 
+                    height={300} 
                   />
                 </div>
                 <div className={styles.serviceCardContent}>

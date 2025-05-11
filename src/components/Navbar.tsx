@@ -86,7 +86,7 @@ const Navbar = () => {
                     <Link href="/commercial" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>
                       Aperçu Commercial
                     </Link>
-                    <Link href="/commercial#service-asphalte" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Bardeaux d'asphalte</Link>
+                    <Link href="/commercial#service-asphalte" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Bardeaux d&apos;asphalte</Link>
                     <Link href="/commercial#service-epdm-tpo" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Membrane EPDM / TPO</Link>
                     <Link href="/commercial#service-metallique" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Toiture métallique</Link>
                     <Link href="/commercial#service-blanche" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Toiture blanche</Link>
@@ -106,7 +106,7 @@ const Navbar = () => {
                     <Link href="/commercial" className={`${styles.dropdownLink} ${isActive('/commercial') ? styles.activeSub : ''}`}>
                       Aperçu Commercial
                     </Link>
-                    <Link href="/commercial#service-asphalte" className={styles.dropdownLink}>Bardeaux d'asphalte</Link>
+                    <Link href="/commercial#service-asphalte" className={styles.dropdownLink}>Bardeaux d&apos;asphalte</Link>
                     <Link href="/commercial#service-epdm-tpo" className={styles.dropdownLink}>Membrane EPDM / TPO</Link>
                     <Link href="/commercial#service-metallique" className={styles.dropdownLink}>Toiture métallique</Link>
                     <Link href="/commercial#service-blanche" className={styles.dropdownLink}>Toiture blanche</Link>
@@ -135,7 +135,7 @@ const Navbar = () => {
                     <Link href="/residentiel" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>
                       Aperçu Résidentiel
                     </Link>
-                    <Link href="/residentiel#service-asphalte" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Bardeaux d'asphalte</Link>
+                    <Link href="/residentiel#service-asphalte" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Bardeaux d&apos;asphalte</Link>
                     <Link href="/residentiel#service-tuiles" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Tuiles</Link>
                     <Link href="/residentiel#service-metallique" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Métallique</Link>
                     <Link href="/residentiel#service-membrane" className={styles.dropdownLink} onClick={() => setMobileMenuOpen(false)}>Membrane bitumineuse</Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
                     <Link href="/residentiel" className={`${styles.dropdownLink} ${isActive('/residentiel') ? styles.activeSub : ''}`}>
                       Aperçu Résidentiel
                     </Link>
-                    <Link href="/residentiel#service-asphalte" className={styles.dropdownLink}>Bardeaux d'asphalte</Link>
+                    <Link href="/residentiel#service-asphalte" className={styles.dropdownLink}>Bardeaux d&apos;asphalte</Link>
                     <Link href="/residentiel#service-tuiles" className={styles.dropdownLink}>Tuiles</Link>
                     <Link href="/residentiel#service-metallique" className={styles.dropdownLink}>Métallique</Link>
                     <Link href="/residentiel#service-membrane" className={styles.dropdownLink}>Membrane bitumineuse</Link>
