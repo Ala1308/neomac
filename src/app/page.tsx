@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
+import Script from 'next/script';
 
 const servicesData = [
   {
@@ -30,6 +31,49 @@ const servicesData = [
 export default function HomePage() {
   return (
     <>
+      {/* Schema.org JSON-LD */}
+      <Script id="homepage-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NEOMAC",
+        "description": "Entreprise spécialisée en toitures commerciales et résidentielles au Québec avec 10 ans d'expertise",
+        "url": "https://www.neomac.ca",
+        "logo": "https://www.neomac.ca/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Québec",
+          "addressRegion": "QC",
+          "addressCountry": "CA"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+14185551234",
+          "contactType": "customer service"
+        },
+        "sameAs": [
+          "https://www.facebook.com/neomac",
+          "https://www.instagram.com/neomac_toitures"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Toitures commerciales",
+              "url": "https://www.neomac.ca/commercial"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Toitures résidentielles",
+              "url": "https://www.neomac.ca/residentiel"
+            }
+          }
+        ]
+      })}} />
+
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}></div>
@@ -54,7 +98,14 @@ export default function HomePage() {
             {servicesData.map((service, index) => (
               <div key={index} className={`${styles.serviceCard} animate-zoomIn`} style={{ animationDelay: `${index * 100}ms` }}>
                 <div className={styles.cardImageContainer}>
-                  <img src={service.image} alt={service.title} className={styles.cardImage} />
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className={styles.cardImage} 
+                    loading="lazy" 
+                    width="400" 
+                    height="300" 
+                  />
                 </div>
                 <h3 className={styles.serviceCardTitle}>{service.title}</h3>
                 <div className={styles.cardOverlay}>

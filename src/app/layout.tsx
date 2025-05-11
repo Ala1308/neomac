@@ -3,7 +3,6 @@ import "./globals.css";
 import "@/styles/animations.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
   title: "NEOMAC - Toitures Commerciales et Résidentielles",
@@ -24,7 +23,6 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <ChatWidget />
       </body>
     </html>
   );

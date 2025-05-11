@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 9L12 2L22 9V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V9Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M5 11L7 11L7 13L5 13L5 11Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M9 11L11 11L11 13L9 13L9 11Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 11L15 11L15 13L13 13L13 11Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 11L19 11L19 13L17 13L17 11Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M7 15L9 15L9 17L7 17L7 15Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11 15L13 15L13 17L11 17L11 15Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15 15L17 15L17 17L15 17L15 15Z" stroke="#FFA500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

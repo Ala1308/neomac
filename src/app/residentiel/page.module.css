@@ -13,12 +13,14 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%;
+  width: 55%; /* Normalisé pour correspondre aux autres pages */
   height: 100%;
   background-color: var(--orange);
   /* This clip-path creates a diagonal on the left edge of the overlay */
-  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); /* Angle normalisé */
   z-index: 1;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1); /* Ombre pour plus de profondeur */
+  transition: all 0.5s ease; /* Animation fluide */
 }
 
 .heroContent {
@@ -297,6 +299,116 @@
   background-color: var(--orange-hover);
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+}
+
+/* Mid-page CTA Section */
+.midCTASection {
+  position: relative;
+  background-image: url('/bardeaux_cedre_residentiel.png');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 1rem;
+  color: var(--white);
+  text-align: center;
+  overflow: hidden;
+  margin: 3rem 0;
+}
+
+.midCTAOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.midCTAContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.midCTATitle {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.midCTAText {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--white);
+}
+
+.midCTAButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .midCTAButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.midCTAPrimary {
+  display: inline-block;
+  background-color: var(--orange);
+  color: var(--white);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 2px solid var(--orange);
+}
+
+.midCTAPrimary:hover {
+  background-color: transparent;
+  color: var(--white);
+  border-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.midCTASecondary {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--white);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 2px solid var(--white);
+  transition: all 0.3s ease;
+}
+
+.midCTASecondary:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom CTA Section */
+.bottomCTASection {
+  background-color: var(--cream);
+  padding: 3rem 1rem;
 }
 
 .ctaButton:hover::after {

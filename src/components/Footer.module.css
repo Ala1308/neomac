@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--black);
   color: var(--cream);
-  padding: 3rem 2rem; /* Vertical 3rem, Horizontal 2rem */
+  padding: 3rem 0; /* Padding horizontal 0 pour permettre un centrage parfait */
 }
 
 /* Responsive pour mobile */
@@ -12,12 +12,13 @@
 }
 
 .footerContainer {
-  max-width: 1200px; /* Or your preferred max-width */
+  max-width: 1200px; /* Largeur maximale */
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 2rem; /* Space between columns */
-  margin-bottom: 2rem; /* Space before footer bottom */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes responsives */
+  gap: 2.5rem; /* Plus d'espace entre les colonnes */
+  margin-bottom: 2.5rem; /* Plus d'espace avant le bas du footer */
+  padding: 0 2rem; /* Padding horizontal pour éviter que le contenu touche les bords */
 }
 
 /* Responsive pour mobile */
@@ -123,9 +124,12 @@
 
 .footerBottom {
   text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(245, 240, 232, 0.2); /* Cream color with opacity for divider */
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.875rem; /* ~14px */
+  opacity: 0.8;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Responsive adjustments for columns if needed */

@@ -68,7 +68,7 @@ const Navbar = () => {
             </Link>
           </li>
           
-          {/* Menu Commercial - comportement différent sur mobile */}
+          {/* Dropdown Commercial */}
           <li className={styles.navItemRelative}
             onMouseEnter={() => !isMobile && setCommercialOpen(true)}
             onMouseLeave={() => !isMobile && setCommercialOpen(false)}
@@ -169,6 +169,15 @@ const Navbar = () => {
               className={`${styles.navLink} ${isActive('/contact') ? styles.active : ''}`}
               onClick={() => setMobileMenuOpen(false)}>
               Contactez-nous
+            </Link>
+          </li>
+          
+          {/* CTA fixe dans la barre de navigation */}
+          <li className={styles.navCTAContainer}>
+            <Link href="/contact" 
+              className={styles.navCTA}
+              onClick={() => setMobileMenuOpen(false)}>
+              DEVIS GRATUIT
             </Link>
           </li>
         </ul>

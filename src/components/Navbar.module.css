@@ -197,3 +197,42 @@
 }
 
 /* TODO: Mobile menu (burger) styling - will be added later */
+
+/* Styles pour le CTA dans la barre de navigation */
+.navCTAContainer {
+  margin-left: 1rem;
+}
+
+.navCTA {
+  display: inline-block;
+  background-color: #ff0000; /* Rouge vif pour le rendre très visible */
+  color: var(--white);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 1rem; /* Taille augmentée */
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem; /* Padding augmenté */
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid white; /* Bordure blanche pour le contraste */
+}
+
+.navCTA:hover {
+  background-color: #e69500;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 767px) {
+  .navCTAContainer {
+    margin: 1rem 0 0 0;
+    text-align: center;
+  }
+  
+  .navCTA {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+}

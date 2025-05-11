@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
+import Script from 'next/script';
 
 const residentialServices = [
   {
@@ -40,6 +41,34 @@ const residentialServices = [
 export default function ResidentielPage() {
   return (
     <main>
+      {/* Schema.org JSON-LD */}
+      <Script id="residentiel-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Services de toiture résidentielle NEOMAC",
+        "provider": {
+          "@type": "Organization",
+          "name": "NEOMAC",
+          "description": "Entreprise spécialisée en toitures commerciales et résidentielles au Québec",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Québec",
+            "addressRegion": "QC",
+            "addressCountry": "CA"
+          }
+        },
+        "serviceType": "Installation et réparation de toitures résidentielles",
+        "description": "Solutions durables et esthétiques pour votre maison incluant bardeaux d'asphalte, toitures métalliques, bardeaux de cèdre et membranes élastomères.",
+        "offers": {
+          "@type": "Offer",
+          "description": "Devis gratuit pour toitures résidentielles"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Québec et environs"
+        }
+      })}} />
+
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}></div>
@@ -60,7 +89,14 @@ export default function ResidentielPage() {
             {residentialServices.map((service, index) => (
               <div key={index} className={`${styles.serviceCard} animate-slideInRight`} style={{ animationDelay: `${index * 150}ms` }}>
                 <div className={styles.cardImageContainer}>
-                  <img src={service.image} alt={service.title} className={styles.cardImage} />
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className={styles.cardImage} 
+                    loading="lazy" 
+                    width="400" 
+                    height="300" 
+                  />
                 </div>
                 <div className={styles.serviceCardContent}>
                   <h3 className={styles.serviceCardTitle}>{service.title}</h3>
@@ -72,6 +108,29 @@ export default function ResidentielPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Mid-page CTA Section */}
+      <section className={styles.midCTASection}>
+        <div className={styles.midCTAOverlay}></div>
+        <div className={styles.midCTAContent}>
+          <h2 className={styles.midCTATitle}>Un projet de toiture pour votre maison?</h2>
+          <p className={styles.midCTAText}>Contactez nos experts pour obtenir des conseils personnalisés et un devis gratuit sans engagement.</p>
+          <div className={styles.midCTAButtons}>
+            <ButtonLink href="/contact" className={`${styles.midCTAPrimary} animate-pulse`}>
+              OBTENIR UN DEVIS GRATUIT
+            </ButtonLink>
+            <ButtonLink href="tel:+14185551234" className={styles.midCTASecondary}>
+              APPELEZ-NOUS
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA Section */}
+      <section className={styles.bottomCTASection}>
+        <div className={styles.sectionContainer}>
           <div className={styles.ctaContainer}>
             <ButtonLink href="/contact" className={`${styles.ctaButton} animate-slideInRight delay-300 hover-lift`}>
               DEMANDEZ UN DEVIS GRATUIT

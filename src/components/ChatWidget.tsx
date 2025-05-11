@@ -5,10 +5,10 @@ import Script from 'next/script';
 
 export default function ChatWidget() {
   useEffect(() => {
-    // Cette fonction sera exu00e9cutu00e9e cotu00e9 client apru00e8s le rendu initial
+    // Cette fonction sera exécutée côté client après le rendu initial
     const loadConvaiWidget = () => {
       if (typeof window !== 'undefined') {
-        // Cru00e9ation de l'u00e9lu00e9ment Elevenlabs Convai s'il n'existe pas du00e9ju00e0
+        // Création de l'élément Elevenlabs Convai s'il n'existe pas déjà
         if (!document.querySelector('elevenlabs-convai')) {
           const convaiElement = document.createElement('elevenlabs-convai');
           convaiElement.setAttribute('agent-id', 'P57Zl7L61igBYakUxXMC');
@@ -19,7 +19,7 @@ export default function ChatWidget() {
     
     loadConvaiWidget();
     
-    // Nettoyage lors du du00e9montage du composant
+    // Nettoyage lors du démontage du composant
     return () => {
       const convaiElement = document.querySelector('elevenlabs-convai');
       if (convaiElement) {
@@ -34,7 +34,7 @@ export default function ChatWidget() {
         src="https://elevenlabs.io/convai-widget/index.js"
         strategy="afterInteractive"
       />
-      {/* Le widget Elevenlabs Convai est injectu00e9 directement dans le DOM */}
+      {/* Le widget Elevenlabs Convai est injecté directement dans le DOM */}
     </>
   );
 }

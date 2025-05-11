@@ -59,7 +59,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin-bottom: 1rem; /* Basic spacing for paragraphs */
+  margin-bottom: 1.2rem; /* Plus d'espace entre les paragraphes */
+  font-size: 18px; /* Taille augmentu00e9e comme suggeru00e9 */
+  line-height: 1.6; /* Espacement des lignes amu00e9lioru00e9 */
+  color: rgba(0, 0, 0, 0.85); /* Couleur légèrement plus foncée pour un meilleur contraste */
+  letter-spacing: 0.01em; /* Améliore la lisibilité */
 }
 
 a {

@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import ButtonLink from '@/components/ButtonLink';
+import Script from 'next/script';
 
 const commercialServices = [
   {
@@ -34,6 +35,34 @@ const commercialServices = [
 export default function CommercialPage() {
   return (
     <main>
+      {/* Schema.org JSON-LD */}
+      <Script id="commercial-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Services de toiture commerciale NEOMAC",
+        "provider": {
+          "@type": "Organization",
+          "name": "NEOMAC",
+          "description": "Entreprise spécialisée en toitures commerciales et résidentielles au Québec",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Québec",
+            "addressRegion": "QC",
+            "addressCountry": "CA"
+          }
+        },
+        "serviceType": "Installation et réparation de toitures commerciales",
+        "description": "Solutions professionnelles pour vos bâtiments commerciaux incluant membranes TPO, EPDM, élastomère et toitures métalliques.",
+        "offers": {
+          "@type": "Offer",
+          "description": "Devis gratuit pour toitures commerciales"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Quu00e9bec et environs"
+        }
+      })}} />
+
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}></div>
@@ -54,7 +83,14 @@ export default function CommercialPage() {
             {commercialServices.map((service, index) => (
               <div key={index} className={`${styles.serviceCard} animate-zoomIn`} style={{ animationDelay: `${index * 100}ms` }}>
                 <div className={styles.cardImageContainer}>
-                  <img src={service.image} alt={service.title} className={styles.cardImage} />
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className={styles.cardImage} 
+                    loading="lazy" 
+                    width="400" 
+                    height="300" 
+                  />
                 </div>
                 <h3 className={styles.serviceCardTitle}>{service.title}</h3>
                 <div className={styles.cardOverlay}>
@@ -64,6 +100,29 @@ export default function CommercialPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Mid-page CTA Section */}
+      <section className={styles.midCTASection}>
+        <div className={styles.midCTAOverlay}></div>
+        <div className={styles.midCTAContent}>
+          <h2 className={styles.midCTATitle}>Besoin d'une solution sur mesure?</h2>
+          <p className={styles.midCTAText}>Notre équipe d'experts est prête à vous conseiller pour votre projet commercial.</p>
+          <div className={styles.midCTAButtons}>
+            <ButtonLink href="/contact" className={`${styles.midCTAPrimary} animate-pulse`}>
+              OBTENIR UN DEVIS GRATUIT
+            </ButtonLink>
+            <ButtonLink href="tel:+14185551234" className={styles.midCTASecondary}>
+              APPELEZ-NOUS
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA Section */}
+      <section className={styles.bottomCTASection}>
+        <div className={styles.sectionContainer}>
           <div className={styles.ctaContainer}>
             <ButtonLink href="/contact" className={`${styles.ctaButton} animate-slideInLeft delay-300 hover-lift`}>
               DEMANDEZ UN DEVIS GRATUIT

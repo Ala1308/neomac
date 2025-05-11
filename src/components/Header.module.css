@@ -1,18 +1,20 @@
 .header {
   background-color: var(--black);
-  padding: 1rem 0;
+  padding: 0.7rem 0; /* Ru00e9duit la hauteur du header */
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem; /* Plus d'espace horizontal */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px; /* Hauteur fixe pour assurer un alignement vertical cohu00e9rent */
 }
 
 .logoContainer {
@@ -20,6 +22,8 @@
   align-items: center;
   text-decoration: none;
   color: var(--white);
+  padding: 0.5rem 0;
+  margin-right: 1rem;
 }
 
 .logoIcon {
@@ -36,6 +40,7 @@
 .nav {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .navList {
@@ -43,24 +48,233 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 1.5rem; /* Ru00e9duire lu00e9gu00e8rement l'espace entre les u00e9lu00e9ments */
+  height: 100%;
+  align-items: center;
 }
 
 .navItem {
   position: relative;
 }
 
+/* Styles pour les mega-menus */
+.megaMenuContainer {
+  position: relative;
+}
+
+.menuArrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 800px;
+  max-width: 90vw;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  border-top: 3px solid var(--orange);
+}
+
+.megaMenu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--orange);
+}
+
+.megaMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.megaMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.megaMenuHeader h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--black);
+  margin: 0;
+}
+
+.megaMenuViewAll {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.megaMenuViewAll:hover {
+  text-decoration: underline;
+}
+
+.megaMenuGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.megaMenuItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.megaMenuItem:hover {
+  background-color: rgba(255, 165, 0, 0.1);
+}
+
+.megaMenuIconContainer {
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.megaMenuIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 165, 0, 0.15);
+  border-radius: 50%;
+}
+
+.iconFallback {
+  width: 24px;
+  height: 24px;
+  background-color: var(--orange);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.megaMenuItemContent {
+  flex-grow: 1;
+}
+
+.megaMenuItemContent h4 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+  margin: 0 0 0.25rem 0;
+}
+
+.megaMenuItemContent p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive pour les mega-menus */
+@media (max-width: 767px) {
+  .megaMenu {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-top: none;
+    border-left: 3px solid var(--orange);
+  }
+  
+  .megaMenu::before {
+    display: none;
+  }
+  
+  .megaMenuGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .megaMenuItem {
+    padding: 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .megaMenuHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .megaMenuViewAll {
+    font-size: 0.85rem;
+  }
+}
+
 .navLink {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--white);
   text-decoration: none;
   transition: color 150ms ease-in-out;
+  position: relative;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navLink:hover {
   color: var(--orange);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
 }
 
 .active {
@@ -86,6 +300,37 @@
   to {
     width: 100%;
   }
+}
+
+/* Styles pour le CTA dans la barre de navigation */
+.navCTAContainer {
+  margin-left: 1.5rem;
+}
+
+.navCTA {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orange);
+  color: var(--white);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.3);
+  border: 2px solid transparent;
+  height: 36px; /* Hauteur fixe pour un meilleur alignement */
+}
+
+.navCTA:hover {
+  background-color: #e69500; /* Orange lu00e9gu00e8rement plus foncu00e9 */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 165, 0, 0.4);
+  border-color: var(--white);
 }
 
 @media (max-width: 768px) {
