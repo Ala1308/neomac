@@ -19,6 +19,24 @@
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .navContainer {
+    flex-wrap: wrap; /* Permettre le retour à la ligne */
+    padding: 0 10px; /* Ajouter un peu d'espacement horizontal */
+    justify-content: space-between; /* Répartir les éléments */
+    width: 100%; /* Garantir la pleine largeur */
+  }
+  
+  .logoContainer {
+    margin-right: auto; /* Pousse le logo à gauche */
+    flex: 0 1 auto; /* Ne pas étirer le logo */
+  }
+  
+  .navbar {
+    padding: 0.75rem 0; /* Réduire le padding vertical, supprimer horizontal */
+  }
+}
+
 /* Styles pour le bouton hamburger */
 .hamburgerButton {
   display: none;
@@ -58,24 +76,18 @@
     padding: 0.75rem 1rem; /* Reduce padding on mobile */
   }
 
-  .mobileMenu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 85%;
-    max-width: 320px;
-    height: 100vh;
-    background-color: var(--black);
-    flex-direction: column;
-    padding: 5rem 1rem 1rem;
-    transition: all 0.3s ease;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3); /* Shadow more visible */
-    overflow-y: auto;
-    z-index: 1000;
-  }
-  
-  .mobileMenuOpen {
-    right: 0;
+  /* Correction du menu mobile */
+  .hamburgerButton {
+    display: flex !important; /* Forcer l'affichage */
+    position: absolute;
+    left: 10px; /* Positionner à gauche */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    background-color: rgba(255, 165, 0, 0.2); /* Fond orange semi-transparent */
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--orange);
   }
   
   /* Ajout d'un overlay sombre quand le menu est ouvert */
@@ -124,28 +136,58 @@
 
 @media (max-width: 767px) {
   .navMenu {
+    display: none; /* Par défaut, masquer le menu */
     gap: 0;
     margin: 0;
     padding: 0;
   }
   
+  /* Afficher le menu quand la classe mobileMenuOpen est présente */
+  .mobileMenuOpen {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--black);
+    flex-direction: column;
+    padding: 4rem 1rem 1rem;
+    z-index: 999;
+    overflow-y: auto;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Ajout d'un overlay sombre pour le fond quand le menu est ouvert */
+  .mobileMenuOpen::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Couvrir tout l'écran */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+  
   .navMenu li {
     width: 100%;
-    margin-bottom: 1.25rem; /* Augmenter l'espacement vertical */
+    margin-bottom: 1.25rem;
     padding: 0;
   }
   
   .navLink {
     display: block;
     width: 100%;
-    padding: 1rem 0.5rem; /* Plus de padding pour une meilleure zone de clic */
+    padding: 1rem 0.5rem;
     text-align: left;
-    font-size: 1.1rem; /* Texte plus grand sur mobile */
+    font-size: 1.1rem;
     border-radius: 4px;
   }
 
   .navLink:active {
-    background-color: rgba(255, 255, 255, 0.1); /* Feedback visuel au toucher */
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -254,7 +296,7 @@
 
 /* TODO: Mobile menu (burger) styling - will be added later */
 
-/* Styles pour le CTA dans la barre de navigation */
+/* Styles pour le CTA fixe dans la barre de navigation */
 .navCTAContainer {
   margin-left: 1rem;
 }
@@ -265,14 +307,15 @@
   color: var(--white);
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
-  font-size: 1rem; /* Taille augmentée */
+  font-size: 0.9rem; /* Taille réduite pour éviter le débordement */
   text-transform: uppercase;
-  padding: 0.8rem 1.5rem; /* Padding augmenté */
+  padding: 0.7rem 1.2rem; /* Padding réduit */
   border-radius: 4px;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: 2px solid white; /* Bordure blanche pour le contraste */
+  white-space: nowrap; /* Éviter retour à la ligne */
 }
 
 .navCTA:hover {
@@ -283,20 +326,23 @@
 
 @media (max-width: 767px) {
   .navCTAContainer {
-    margin: 1.5rem 0 0.5rem 0;
+    margin: 0;
     text-align: center;
-    width: 100%;
+    position: absolute;
+    right: 10px;
+    top: 12px; /* Positionner en haut à droite */
+    width: auto;
+    max-width: 120px; /* Limiter la largeur */
   }
   
   .navCTA {
-    width: 100%;
-    padding: 1rem 1rem;
-    font-size: 1.1rem;
-    display: flex;
+    width: auto;
+    padding: 6px 10px;
+    font-size: 0.75rem; /* Texte plus petit */
+    display: inline-block;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    animation: pulse 2s infinite;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
   
   @keyframes pulse {
