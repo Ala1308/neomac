@@ -15,7 +15,7 @@ const servicesData = [
     icon: "residential",
     title: "Toitures résidentielles",
     link: "/residentiel",
-    description: "Toitures en bardeaux d&apos;asphalte, métal ou ardoise pour votre maison. Nos solutions résidentielles allient esthétique, durabilité et protection contre les intempéries.",
+    description: "Toitures en bardeaux d'asphalte, métal ou ardoise pour votre maison. Nos solutions résidentielles allient esthétique, durabilité et protection contre les intempéries.",
     image: "/asphalt_residentiel.png"
   },
   {
